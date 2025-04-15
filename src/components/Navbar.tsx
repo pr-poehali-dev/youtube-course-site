@@ -1,88 +1,61 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b">
-      <div className="container flex justify-between items-center py-4">
-        {/* Логотип */}
+    <nav className="sticky top-0 z-50 w-full bg-white">
+      <div className="flex justify-between items-center p-4 border-b border-black">
         <div className="flex items-center gap-2">
-          <span className="font-bold text-xl text-primary">EsteticTube</span>
+          <span className="font-mono text-xl">EsteticTube</span>
+          <span className="font-mono text-xs">(perfume atelier)</span>
         </div>
 
         {/* Десктопное меню */}
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#features" className="text-foreground/80 hover:text-primary transition-colors">
-            О курсе
-          </a>
-          <a href="#curriculum" className="text-foreground/80 hover:text-primary transition-colors">
-            Программа
-          </a>
-          <a href="#testimonials" className="text-foreground/80 hover:text-primary transition-colors">
-            Отзывы
-          </a>
-          <a href="#pricing" className="text-foreground/80 hover:text-primary transition-colors">
-            Тарифы
-          </a>
-          <a href="#faq" className="text-foreground/80 hover:text-primary transition-colors">
-            FAQ
-          </a>
+        <div className="hidden md:flex items-center">
+          <a href="#features" className="nav-item">О курсе</a>
+          <a href="#curriculum" className="nav-item">Программа</a>
+          <a href="#testimonials" className="nav-item">Отзывы</a>
+          <a href="#pricing" className="nav-item">Тарифы</a>
+          <a href="#faq" className="nav-item">FAQ</a>
+          <a href="#contact" className="nav-item">Контакты</a>
         </div>
 
-        {/* Кнопка действия */}
-        <div className="hidden md:block">
-          <Button className="font-medium">Начать обучение</Button>
-        </div>
-
-        {/* Мобильное меню */}
+        {/* Мобильное меню кнопка */}
         <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <div className="border border-black p-1 px-3">
+              <span className="font-mono text-xs">MENU</span>
+            </div>
+          )}
         </button>
       </div>
 
       {/* Выпадающее мобильное меню */}
       {isMenuOpen && (
-        <div className="md:hidden container py-4 bg-background border-b animate-accordion-down">
-          <div className="flex flex-col space-y-4">
-            <a 
-              href="#features" 
-              className="text-foreground/80 hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
+        <div className="md:hidden bg-white border-b border-black animate-accordion-down">
+          <div className="flex flex-col">
+            <a href="#features" className="nav-item border-b border-black p-4" onClick={() => setIsMenuOpen(false)}>
               О курсе
             </a>
-            <a 
-              href="#curriculum" 
-              className="text-foreground/80 hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <a href="#curriculum" className="nav-item border-b border-black p-4" onClick={() => setIsMenuOpen(false)}>
               Программа
             </a>
-            <a 
-              href="#testimonials" 
-              className="text-foreground/80 hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <a href="#testimonials" className="nav-item border-b border-black p-4" onClick={() => setIsMenuOpen(false)}>
               Отзывы
             </a>
-            <a 
-              href="#pricing" 
-              className="text-foreground/80 hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <a href="#pricing" className="nav-item border-b border-black p-4" onClick={() => setIsMenuOpen(false)}>
               Тарифы
             </a>
-            <a 
-              href="#faq" 
-              className="text-foreground/80 hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <a href="#faq" className="nav-item border-b border-black p-4" onClick={() => setIsMenuOpen(false)}>
               FAQ
             </a>
-            <Button className="w-full">Начать обучение</Button>
+            <a href="#contact" className="nav-item p-4" onClick={() => setIsMenuOpen(false)}>
+              Контакты
+            </a>
           </div>
         </div>
       )}

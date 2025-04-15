@@ -1,4 +1,4 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useState } from "react";
 
 const faqItems = [
   {
@@ -7,7 +7,7 @@ const faqItems = [
   },
   {
     question: "Нужно ли дорогое оборудование для прохождения курса?",
-    answer: "Нет, курс разработан таким образом, что вы можете начать с любым оборудованием, даже со смартфоном. Мы фокусируемся на принципах и техниках, которые можно применить независимо от используемой техники. По мере обучения вы сами поймете, какое оборудование подходит именно для вашего стиля контента."
+    answer: "Нет, курс разработан таким образом, что вы можете начать с любым оборудованием, даже со смартфоном. Мы фокусируемся на принципах и техниках, которые можно применить независимо от используемой техники."
   },
   {
     question: "Как долго я буду иметь доступ к материалам курса?",
@@ -16,45 +16,39 @@ const faqItems = [
   {
     question: "Могу ли я получить возврат средств, если курс мне не подойдет?",
     answer: "Да, мы предоставляем 14-дневную гарантию возврата средств. Если в течение 14 дней после покупки вы поймете, что курс вам не подходит, мы вернем полную стоимость без дополнительных вопросов."
-  },
-  {
-    question: "Какие программы для монтажа используются в курсе?",
-    answer: "В курсе мы в основном используем Adobe Premiere Pro и Adobe After Effects, так как это индустриальные стандарты. Однако принципы, которым мы обучаем, могут быть применены в любом редакторе видео, включая бесплатные альтернативы, такие как DaVinci Resolve или Hitfilm Express."
-  },
-  {
-    question: "Предоставляете ли вы сертификат по окончании курса?",
-    answer: "Да, после успешного завершения курса и выполнения всех практических заданий вы получаете электронный сертификат о прохождении курса, который можно добавить в ваше резюме или профессиональное портфолио."
-  },
-  {
-    question: "Сколько времени нужно уделять обучению?",
-    answer: "Рекомендуемый темп прохождения курса — 4-6 часов в неделю. При таком графике вы сможете полностью освоить материал примерно за 2 месяца. Однако вы можете учиться в своем собственном темпе, ускоряя или замедляя обучение в зависимости от вашего расписания."
   }
 ];
 
 const FAQSection = () => {
-  return (
-    <section id="faq" className="py-20 bg-muted/30">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Часто задаваемые вопросы</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl">
-            Получите ответы на самые распространенные вопросы о нашем курсе.
-          </p>
-        </div>
+  const [openItem, setOpenItem] = useState<number | null>(null);
 
-        <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="w-full">
-            {faqItems.map((item, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border-b">
-                <AccordionTrigger className="text-lg font-medium py-4">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground py-4 px-1">
+  const toggleItem = (index: number) => {
+    setOpenItem(openItem === index ? null : index);
+  };
+
+  return (
+    <section id="faq" className="bg-background py-16">
+      <div className="container px-4 md:px-6 mx-auto">
+        <h2 className="font-mono text-2xl mb-12 text-white">Часто задаваемые вопросы</h2>
+
+        <div className="border border-white">
+          {faqItems.map((item, index) => (
+            <div key={index} className={`${index !== 0 ? 'border-t border-white' : ''}`}>
+              <button 
+                onClick={() => toggleItem(index)}
+                className="w-full flex justify-between items-center p-4 text-left font-mono text-white"
+              >
+                <span className="text-sm">{item.question}</span>
+                <span className="text-xl">{openItem === index ? "-" : "+"}</span>
+              </button>
+              
+              {openItem === index && (
+                <div className="border-t border-white p-4 font-mono text-xs text-gray-300">
                   {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>

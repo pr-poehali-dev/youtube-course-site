@@ -18,6 +18,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				mono: ['JetBrains Mono', 'monospace'],
+				sans: ['Inter', 'sans-serif'],
+				cursive: ['Dancing Script', 'cursive'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

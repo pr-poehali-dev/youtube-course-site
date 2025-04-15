@@ -1,102 +1,56 @@
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-background border-t">
-      <div className="container px-4 md:px-6 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-1">
+    <footer className="bg-white border-t border-black">
+      <div className="container px-4 py-8 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
             <div className="flex items-center gap-2 mb-4">
-              <span className="font-bold text-xl text-primary">EsteticTube</span>
+              <span className="font-mono text-lg">EsteticTube</span>
+              <span className="font-mono text-xs">(perfume atelier)</span>
             </div>
-            <p className="text-muted-foreground text-sm mb-4">
+            <p className="font-mono text-xs mb-4">
               Обучаем созданию эстетичного контента для YouTube с 2021 года.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary">
-                <Youtube className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary">
-                <Facebook className="h-5 w-5" />
-              </a>
+              <a href="#" className="font-mono text-xs border border-black px-2 py-1">YT</a>
+              <a href="#" className="font-mono text-xs border border-black px-2 py-1">IG</a>
+              <a href="#" className="font-mono text-xs border border-black px-2 py-1">TW</a>
+              <a href="#" className="font-mono text-xs border border-black px-2 py-1">FB</a>
             </div>
           </div>
+          
           <div>
-            <h3 className="font-semibold mb-4">Навигация</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
-                  О курсе
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
-                  Программа
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
-                  Отзывы
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
-                  Тарифы
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
-                  FAQ
-                </a>
-              </li>
-            </ul>
+            <h3 className="font-mono text-sm mb-4">КОНТАКТЫ</h3>
+            <address className="not-italic font-mono text-xs space-y-2">
+              <p>hello@estetictube.com</p>
+              <p>+7 (999) 123-45-67</p>
+              <p>Москва, ул. Красная, 1</p>
+            </address>
           </div>
+          
           <div>
-            <h3 className="font-semibold mb-4">Правовая информация</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
-                  Условия использования
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
-                  Политика конфиденциальности
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
-                  Обработка данных
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
-                  Политика возврата
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-4">Подпишитесь на рассылку</h3>
-            <p className="text-muted-foreground text-sm mb-4">
-              Получайте бесплатные материалы и новости о скидках
-            </p>
-            <div className="flex flex-col sm:flex-row gap-2">
-              <Input placeholder="Ваш email" className="flex-1" />
-              <Button type="submit">Подписаться</Button>
+            <h3 className="font-mono text-sm mb-4">ПОДПИШИТЕСЬ НА РАССЫЛКУ</h3>
+            <div className="border border-black p-4">
+              <p className="font-mono text-xs mb-4">
+                Получайте бесплатные материалы и новости о скидках
+              </p>
+              <div className="flex gap-2">
+                <Input 
+                  placeholder="Ваш email" 
+                  className="flex-1 font-mono text-xs border-black rounded-none"
+                />
+                <button className="bg-black text-white font-mono text-xs px-4">
+                  OK
+                </button>
+              </div>
             </div>
           </div>
         </div>
-        <div className="mt-12 pt-6 border-t text-center text-sm text-muted-foreground">
-          <p>© 2023 EsteticTube. Все права защищены.</p>
+        
+        <div className="mt-8 pt-6 border-t border-black text-center">
+          <p className="font-mono text-xs">© 2023 EsteticTube. Все права защищены.</p>
         </div>
       </div>
     </footer>

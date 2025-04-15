@@ -2,85 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
 @layer base {
   :root {
-    --background: 300 20% 99%;
-    --foreground: 270 5% 20%;
+    --background: 0 0% 12%;
+    --foreground: 0 0% 95%;
 
     --card: 0 0% 100%;
-    --card-foreground: 270 5% 20%;
+    --card-foreground: 0 0% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 270 5% 20%;
+    --popover-foreground: 0 0% 12%;
 
-    --primary: 320 80% 60%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 80% 50%;
+    --primary-foreground: 0 0% 95%;
 
-    --secondary: 260 60% 60%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 300 10% 94%;
-    --muted-foreground: 270 5% 40%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 330 80% 96%;
-    --accent-foreground: 320 70% 50%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 80% 50%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 270 10% 90%;
-    --input: 270 10% 90%;
-    --ring: 320 80% 60%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 0 80% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 270 20% 7%;
-    --foreground: 270 10% 90%;
-
-    --card: 270 20% 10%;
-    --card-foreground: 270 10% 90%;
-
-    --popover: 270 20% 10%;
-    --popover-foreground: 270 10% 90%;
-
-    --primary: 320 70% 55%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 260 50% 55%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 270 15% 15%;
-    --muted-foreground: 270 10% 70%;
-
-    --accent: 330 50% 20%;
-    --accent-foreground: 320 70% 70%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 270 15% 20%;
-    --input: 270 15% 20%;
-    --ring: 320 70% 55%;
-
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 0 0% 15%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 0 0% 95%;
+    --sidebar-primary-foreground: 0 0% 15%;
+    --sidebar-accent: 0 0% 20%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 0 0% 95%;
   }
 }
 
@@ -90,6 +53,36 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-mono;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-mono font-normal tracking-tight;
+  }
+  
+  .polaroid {
+    @apply bg-white p-1 pb-4 shadow-md;
+  }
+  
+  .polaroid-caption {
+    @apply text-center text-black mt-2 text-sm font-mono;
+  }
+  
+  .product-card {
+    @apply bg-white p-2 flex flex-col;
+  }
+  
+  .product-price {
+    @apply text-right font-mono text-sm;
+  }
+
+  .cursive-text {
+    @apply font-cursive text-primary;
+  }
+}
+
+@layer components {
+  .nav-item {
+    @apply font-mono uppercase text-xs tracking-wide border border-transparent hover:border-white px-3 py-1 transition-all;
   }
 }

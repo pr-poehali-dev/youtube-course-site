@@ -3,35 +3,35 @@ import { useState } from "react";
 const modules = [
   {
     id: "module-1",
-    title: "Основы эстетичной видеосъемки",
-    description: "Знакомство с базовыми принципами съемки и композиции",
+    title: "Основы ароматической композиции",
+    description: "Ознакомление с базовыми принципами создания ароматов и их классификация",
     lessons: [
-      { title: "Вводное занятие: что такое эстетика в видео", type: "video", duration: "20 мин" },
-      { title: "Работа с камерой и основы композиции", type: "video", duration: "35 мин" },
-      { title: "Свет и его влияние на атмосферу видео", type: "video", duration: "40 мин" },
-      { title: "Практическое задание: съемка мини-ролика", type: "practice", duration: "25 мин" }
+      { title: "Вводное занятие: искусство парфюмерии", type: "video", duration: "20 мин" },
+      { title: "Основные ноты и их сочетания", type: "video", duration: "35 мин" },
+      { title: "Особенности восприятия ароматов", type: "video", duration: "40 мин" },
+      { title: "Практическое задание: создание простой композиции", type: "practice", duration: "25 мин" }
     ]
   },
   {
     id: "module-2",
-    title: "Цвет и атмосфера в видео",
-    description: "Создание уникальной цветовой гаммы для вашего контента",
+    title: "Натуральные ингредиенты",
+    description: "Изучение природных компонентов и их применение в парфюмерии",
     lessons: [
-      { title: "Теория цвета и ее применение в видео", type: "video", duration: "30 мин" },
-      { title: "Основы цветокоррекции в Adobe Premiere", type: "video", duration: "45 мин" },
-      { title: "Создание цветовых пресетов", type: "video", duration: "35 мин" },
-      { title: "Практическое задание: цветокоррекция материала", type: "practice", duration: "40 мин" }
+      { title: "Эфирные масла и их свойства", type: "video", duration: "30 мин" },
+      { title: "Растительные экстракты и их особенности", type: "video", duration: "45 мин" },
+      { title: "Работа с натуральными компонентами", type: "video", duration: "35 мин" },
+      { title: "Практическое задание: создание натурального аромата", type: "practice", duration: "40 мин" }
     ]
   },
   {
     id: "module-3",
-    title: "Монтаж и ритм повествования",
-    description: "Техники монтажа, создающие плавное восприятие",
+    title: "Создание парфюмерных свечей",
+    description: "Техники изготовления ароматических свечей ручной работы",
     lessons: [
-      { title: "Принципы монтажа для эстетичного контента", type: "video", duration: "40 мин" },
-      { title: "Работа с таймлайном и переходами", type: "video", duration: "50 мин" },
-      { title: "Синхронизация видео с музыкой", type: "video", duration: "45 мин" },
-      { title: "Практическое задание: монтаж мини-ролика", type: "practice", duration: "45 мин" }
+      { title: "Материалы и инструменты для свечей", type: "video", duration: "40 мин" },
+      { title: "Работа с воском и ароматическими композициями", type: "video", duration: "50 мин" },
+      { title: "Декорирование и презентация готового продукта", type: "video", duration: "45 мин" },
+      { title: "Практическое задание: создание парфюмерной свечи", type: "practice", duration: "45 мин" }
     ]
   }
 ];
@@ -42,7 +42,7 @@ const CurriculumSection = () => {
   return (
     <section id="curriculum" className="bg-white py-16">
       <div className="container px-4 md:px-6 mx-auto">
-        <h2 className="font-mono text-2xl mb-12 text-black">Программа курса</h2>
+        <h2 className="font-mono text-2xl mb-12 text-black font-bold">Программа курса</h2>
 
         <div className="grid grid-cols-1 gap-6">
           {modules.map((module, index) => (
@@ -52,29 +52,29 @@ const CurriculumSection = () => {
                 className="w-full flex justify-between items-center p-4 text-left font-mono"
               >
                 <div>
-                  <span className="text-sm mr-2">MODULE {index + 1}</span>
-                  <span className="text-lg">{module.title}</span>
+                  <span className="text-sm mr-2 font-semibold">MODULE {index + 1}</span>
+                  <span className="text-lg font-semibold">{module.title}</span>
                 </div>
-                <span className="text-xl">{openModule === module.id ? "-" : "+"}</span>
+                <span className="text-xl font-bold">{openModule === module.id ? "-" : "+"}</span>
               </button>
               
               {openModule === module.id && (
                 <div className="border-t border-black p-4">
-                  <p className="mb-4 font-mono text-sm text-gray-700">{module.description}</p>
+                  <p className="mb-4 font-mono text-sm text-gray-700 font-semibold">{module.description}</p>
                   
                   <ul className="space-y-4">
                     {module.lessons.map((lesson, lessonIndex) => (
                       <li key={lessonIndex} className="border border-gray-200 p-3">
                         <div className="flex justify-between">
-                          <div className="font-mono text-sm">
+                          <div className="font-mono text-sm font-semibold">
                             <span className="mr-2">{index + 1}.{lessonIndex + 1}</span>
                             {lesson.title}
                           </div>
-                          <div className="text-xs font-mono text-gray-500">
+                          <div className="text-xs font-mono text-gray-500 font-semibold">
                             {lesson.duration}
                           </div>
                         </div>
-                        <div className="mt-1 text-xs text-gray-500 font-mono">
+                        <div className="mt-1 text-xs text-gray-500 font-mono font-semibold">
                           {lesson.type === "video" ? "Видеоурок" : "Практика"}
                         </div>
                       </li>
